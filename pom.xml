@@ -22,6 +22,7 @@
         <java.version>1.8</java.version>
         <Dproject.build.sourceCodeEncoding>UTF-8</Dproject.build.sourceCodeEncoding>
         <Dproject.reporting.outputEncoding>UTF-8</Dproject.reporting.outputEncoding>
+        <start-class>com.shop.admin.AdminApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -46,6 +47,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.shop.admin.AdminApplication</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
