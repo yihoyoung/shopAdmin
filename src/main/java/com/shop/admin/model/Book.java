@@ -2,6 +2,7 @@ package com.shop.admin.model;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import com.alibaba.fastjson.JSON;
 
 @Component
 @ConfigurationProperties(prefix="book")
@@ -33,16 +34,11 @@ public class Book {
     private String name;
     private String author;
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price=" + price +
-                '}';
-    }
 
     private Float price;
 
-
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
+    }
 }
