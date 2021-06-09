@@ -2,6 +2,7 @@ package com.shop.admin.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -20,5 +21,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .allowedMethods("*")
                 .maxAge(1800)
                 .allowedOrigins("*");
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AdminHandlerInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/health")
+                .excludePathPatterns("/hello");
     }
 }
